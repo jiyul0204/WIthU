@@ -12,22 +12,26 @@ public class MoveGame : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // other : zone GameObject의 Collider2D Component만 인자로 넘어옴
-        if (other.tag == "Funiture")
+        // other : zone GameObject의 Collider2D Component만 인자로 넘어옴\
+        if(other.tag =="Game")
         {
-            switch (other.gameObject.name)
-            {
-                case "Image(Left)":
-                    SceneService.Instance.LoadScene(GameName.Touch_Bell);
-                    break;
-                case "Image(Right)":
-                    SceneService.Instance.LoadScene(GameName.CardGame);
-                    break;
-            }
+            SceneService.Instance.LoadScene(GameName.CardGame);
         }
-        else
-        {
-        }
+        //if (other.tag == "Funiture")
+        //{
+        //    switch (other.gameObject.name)
+        //    {
+        //        case "Image(Left)":
+        //            SceneService.Instance.LoadScene(GameName.Touch_Bell);
+        //            break;
+        //        case "Image(Right)":
+        //            SceneService.Instance.LoadScene(GameName.CardGame);
+        //            break;
+        //    }
+        //}
+        //else
+        //{
+        //}
     }
 
     // Update is called once per frame

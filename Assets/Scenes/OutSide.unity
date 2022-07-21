@@ -399,7 +399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1847319118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 161, y: -417}
+  m_AnchoredPosition: {x: 168, y: -323.33}
   m_SizeDelta: {x: 268.23, y: 174.73}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!61 &1847319119
@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1886438210
 RectTransform:
   m_ObjectHideFlags: 0
@@ -520,8 +520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: -417}
-  m_SizeDelta: {x: 348.49, y: 215.64}
+  m_AnchoredPosition: {x: -78, y: -302.88}
+  m_SizeDelta: {x: 396, y: 215.64}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!61 &1886438211
 BoxCollider2D:
@@ -741,6 +741,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1337200340}
     m_Modifications:
+    - target: {fileID: 3431015930935958772, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 907.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431015930935958772, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 267.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431015930935958772, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 267.22998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431015930935958775, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
+      propertyPath: m_Name
+      value: Button(Down_Right)
+      objectReference: {fileID: 0}
     - target: {fileID: 3431015930945044997, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
       propertyPath: m_Name
       value: Panel(Move)
@@ -833,6 +849,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3431015931760905101, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
+      propertyPath: m_Name
+      value: Button(Down_Left)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9454f163c9bb3e245b17e0c9e90bf055, type: 3}
 --- !u!1001 &6167657263679858510
@@ -857,6 +877,10 @@ PrefabInstance:
     - target: {fileID: 6167657265412866710, guid: 891a37fa03ebb404ea9b74bac4f7d9c7, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167657265412866711, guid: 891a37fa03ebb404ea9b74bac4f7d9c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6167657265412866712, guid: 891a37fa03ebb404ea9b74bac4f7d9c7, type: 3}
       propertyPath: m_Name

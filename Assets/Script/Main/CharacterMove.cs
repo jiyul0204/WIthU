@@ -137,12 +137,21 @@ public class CharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(animator.transform.position.y >= -0.5f)
+        if (animator.transform.position.y >= -1.0f)
         {
             animator.transform.position += Vector3.down * moveSpeed * Time.deltaTime;
         }
+        if (animator.transform.position.y < -4.0f)
+            animator.transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+        if (Mathf.Abs(animator.transform.position.x) >= 9)
+        {
+            if(animator.transform.position.x<=0)
+                animator.transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            else
+                animator.transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        }
 
-        if (IsBtnDown && animator.transform.position.y<=-0.5f)
+        if (IsBtnDown && animator.transform.position.y<=0.0f && Mathf.Abs(animator.transform.position.x)<=9)
         {
             if(nDirection==(int)ZoneType.LEFT)
                 animator.transform.position += Vector3.left * moveSpeed * Time.deltaTime;
