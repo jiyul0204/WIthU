@@ -8,7 +8,8 @@ public enum SceneName
 public enum GameName
 {
     Touch_Bell,
-    CardGame
+    CardGame,
+    Runner
 }
 
 public class SceneService : Singleton<SceneService>
