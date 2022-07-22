@@ -35,7 +35,7 @@ public class Runner_Description : MonoBehaviour
                 if(nCnt == 1)
                     txtDescription.text = "여기 아까 주운 씨앗 " + $"{Runner_Score.nScore}" + "개야! 이걸로 멋지게 꾸미고 와~\n 무화과 5개도 챙겨가!\n 그럼 피크닉 때 보자~"; 
                 else
-                    SceneService.Instance.LoadScene(SceneName.Main); 
+                    SceneService.Instance.LoadScene(SceneName.OutSide); 
             }
             else
             {
