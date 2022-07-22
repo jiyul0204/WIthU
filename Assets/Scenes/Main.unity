@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 194249925}
   - component: {fileID: 194249927}
   - component: {fileID: 194249926}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 615149250}
   - component: {fileID: 615149254}
   - component: {fileID: 615149253}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button (Drawer)
   m_TagString: Funiture
   m_Icon: {fileID: 0}
@@ -1556,7 +1556,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3180,7 +3180,7 @@ GameObject:
   - component: {fileID: 1826227202}
   - component: {fileID: 1826227204}
   - component: {fileID: 1826227203}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image (Background)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3470,7 +3470,7 @@ GameObject:
   - component: {fileID: 1901950247}
   - component: {fileID: 1901950249}
   - component: {fileID: 1901950248}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Joystick_Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3751,7 +3751,7 @@ GameObject:
   - component: {fileID: 1949058796}
   - component: {fileID: 1949058800}
   - component: {fileID: 1949058799}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button (Door)
   m_TagString: Funiture
   m_Icon: {fileID: 0}
