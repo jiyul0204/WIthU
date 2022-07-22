@@ -53,7 +53,7 @@ public class ChangeStroy : MonoBehaviour
             }
             else if(TouchCnt==9)
             {
-                SceneService.Instance.LoadScene(SceneName.Main);
+                SceneService.Instance.LoadScene(SceneName.OutSide);
             }
         }
     }
