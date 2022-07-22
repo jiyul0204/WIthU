@@ -29,22 +29,29 @@ public class Runner_Description : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             nCnt++;   
-            if(nCnt == 1)
-                txtDescription.text = "정말?! 너도 간다니 정말 기쁘다!\n그럼 지금부터 피크닉 갈 준비를 해볼까?";    
-            if(nCnt == 2)
-                txtDescription.text = "피크닉엔 뭐니뭐니해도 당근케이크와 토마토 쥬스가 빠질수 없지!\n 재료를 구하러 가자!";    
-            if(nCnt == 3)
-                txtDescription.text = "아, 요즘 길에 독버섯이 종종 보이던데 잘 피해서 따라와야해!\n 그럼 출발하자~!"; 
-            if(nCnt == 4)
-            {
-                oDescriptionPlayer.SetActive(false);
-                oDescriptionPanel.SetActive(false);
-                txtDescription.text = "";  
-                Runner_GameManager.instance.isPlay = true;
-            }
+
             if(bGameEnd == true)
             {
-                txtDescription.text = "여기 아까 주운 씨앗 5개야! 이걸로 멋지게 꾸미고 와~\n 무화과 5개도 챙겨가!\n 그럼 피크닉 때 보자~";  
+                if(nCnt == 1)
+                    txtDescription.text = "여기 아까 주운 씨앗 " + $"{Runner_Score.nScore}" + "개야! 이걸로 멋지게 꾸미고 와~\n 무화과 5개도 챙겨가!\n 그럼 피크닉 때 보자~"; 
+                else
+                    SceneService.Instance.LoadScene(SceneName.Main); 
+            }
+            else
+            {
+                if(nCnt == 1)
+                    txtDescription.text = "정말?! 너도 간다니 정말 기쁘다!\n그럼 지금부터 피크닉 갈 준비를 해볼까?";    
+                if(nCnt == 2)
+                    txtDescription.text = "피크닉엔 뭐니뭐니해도 당근케이크와 토마토 쥬스가 빠질수 없지!\n 재료를 구하러 가자!";    
+                if(nCnt == 3)
+                    txtDescription.text = "아, 요즘 길에 독버섯이 종종 보이던데 잘 피해서 따라와야해!\n 그럼 출발하자~!"; 
+                if(nCnt == 4)
+                {
+                    oDescriptionPlayer.SetActive(false);
+                    oDescriptionPanel.SetActive(false);
+                    txtDescription.text = "";  
+                    Runner_GameManager.instance.isPlay = true;
+                }
             }
         }
     }
@@ -54,5 +61,6 @@ public class Runner_Description : MonoBehaviour
         oDescriptionPlayer.SetActive(true);
         oDescriptionPanel.SetActive(true);
         bGameEnd = true;
+        nCnt = 0;
     }
 }

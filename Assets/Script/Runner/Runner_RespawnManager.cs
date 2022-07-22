@@ -10,6 +10,7 @@ public class Runner_RespawnManager : MonoBehaviour
     public int objCnt = 1;
     public int MobCnt = 0;
     public bool bGameEnd = false;
+    
     void Awake()
     {
         instance = this;
@@ -36,15 +37,6 @@ public class Runner_RespawnManager : MonoBehaviour
             if(bGameEnd == true)
                 break;
             //Debug.Log(MobCnt);
-            MobCnt++;
-            
-            if(MobCnt == 4)
-            {
-                Runner_GameManager.instance.isPlay = false;
-                Runner_QPopupSystem.instance.OpenPopup();
-            }
-
-
             MobPool[DeativeMob()].SetActive(true);
             yield return new WaitForSeconds(Random.Range(1.5f,4f)); // wait
         }
@@ -52,6 +44,14 @@ public class Runner_RespawnManager : MonoBehaviour
 
     int DeativeMob()
     {
+        MobCnt++;
+        
+        if(MobCnt == 4)
+        {
+            Runner_GameManager.instance.isPlay = false;
+            Runner_QPopupSystem.instance.OpenPopup();
+        }
+
         List<int> num = new List<int>();
         for(int i=0; i<MobPool.Count;i++)
         {

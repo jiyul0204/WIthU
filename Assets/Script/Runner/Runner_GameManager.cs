@@ -58,7 +58,8 @@ public class Runner_GameManager : MonoBehaviour
     
     public void GameOver() // 장애물에 부딪혔을 때
     {
-        Runner_Score.nScore--;
+        if(Runner_Score.nScore != 0)
+            Runner_Score.nScore--;
         //playBtn.SetActive(true);
         //isPlay = false;
 
