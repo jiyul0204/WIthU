@@ -10,7 +10,7 @@ public class Runner_Score : MonoBehaviour
     public TextMeshProUGUI scoreText;
     void Start()
     {
-        
+        nScore = 0;
     }
 
     void Update()
