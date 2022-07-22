@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DrawLine : MonoBehaviour
 {
-    public Camera cam;  //Gets Main Camera
-    public Material defaultMaterial; //Material for Line Renderer
-
+    public GameObject linePrefab;
+    LineRenderer lr;
+    EdgeCollider2D col;
+    List<Vector2> points = new List<Vector2>();
     private Vector3 PrevPos = Vector3.zero; // 0,0,0 position variable
 
     [SerializeField]
@@ -15,73 +16,87 @@ public class DrawLine : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Start");
     }
-    //void connectLine(Vector3 mousePos)
-    //{
-    //    if (PrevPos != null && Mathf.Abs(Vector3.Distance(PrevPos, mousePos)) >= 0.001f)
-    //    {
-    //        PrevPos = mousePos;
-    //        positionCount++;
-    //        curLine.positionCount = positionCount;
-    //        curLine.SetPosition(positionCount - 1, mousePos);
-    //    }
 
+    //void DrawMouse()
+    //{
+    //    Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));
+    //    if (!defaultMaterial)
+    //    {
+    //        Debug.LogError("Please Assign a material on the inspector");
+    //        return;
+    //    }
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        createLine(mousePos);
+    //    }
+    //    else if (Input.GetMouseButton(0))
+    //    {
+    //        Vector3 PrePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));
+    //        createLine(mousePos);
+    //    }
     //}
 
-    void DrawMouse()
-    {
-        Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));
-        if (!defaultMaterial)
-        {
-            Debug.LogError("Please Assign a material on the inspector");
-            return;
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            createLine(mousePos);
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            Vector3 PrePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));
-            createLine(mousePos);
-        }
-    }
-
-    void createLine(Vector3 mousePos)
-    {
-        GL.PushMatrix();
-        defaultMaterial.SetPass(0);
-        GL.LoadPixelMatrix();
-        GL.LoadOrtho();
-        GL.Begin(GL.LINES);
-        GL.Color(Color.black);
-        GL.Vertex3(0,0,0);
-        GL.Vertex3(mousePos.x, mousePos.y, 0);
-        GL.End();
-        GL.PopMatrix();
+    //void createLine(Vector3 mousePos)
+    //{
+    //    GL.PushMatrix();
+    //    defaultMaterial.SetPass(0);
+    //    GL.LoadPixelMatrix();
+    //    GL.LoadOrtho();
+    //    GL.Begin(GL.LINES);
+    //    GL.Color(Color.black);
+    //    GL.Vertex3(0,0,0);
+    //    GL.Vertex3(mousePos.x, mousePos.y, 0);
+    //    GL.End();
+    //    GL.PopMatrix();
 
 
-        //GameObject line = new GameObject("Line");
-        //LineRenderer lineRend = line.AddComponent<LineRenderer>();
+    //    //GameObject line = new GameObject("Line");
+    //    //LineRenderer lineRend = line.AddComponent<LineRenderer>();
 
-        //line.transform.parent = cam.transform;
-        //line.transform.position = mousePos;
+    //    //line.transform.parent = cam.transform;
+    //    //line.transform.position = mousePos;
 
-        //lineRend.startWidth = 0.01f;
-        //lineRend.endWidth = 0.01f;
-        //lineRend.numCornerVertices = 5;
-        //lineRend.numCapVertices = 5;
-        //lineRend.material = defaultMaterial;
-        //lineRend.SetPosition(0, mousePos);
-        //lineRend.SetPosition(1, mousePos);
+    //    //lineRend.startWidth = 0.01f;
+    //    //lineRend.endWidth = 0.01f;
+    //    //lineRend.numCornerVertices = 5;
+    //    //lineRend.numCapVertices = 5;
+    //    //lineRend.material = defaultMaterial;
+    //    //lineRend.SetPosition(0, mousePos);
+    //    //lineRend.SetPosition(1, mousePos);
 
-        //curLine = lineRend;
+    //    //curLine = lineRend;
 
-    }
+    //}
     // Update is called once per frame
     void Update()
     {
-        DrawMouse();
+        LineRender();
+    }
+    
+    void LineRender()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            GameObject go = Instantiate(linePrefab);
+            lr = go.GetComponent<LineRenderer>();
+            col = go.GetComponent<EdgeCollider2D>();
+            points.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            lr.positionCount = 1;
+            lr.SetPosition(0, points[0]);
+        }
+        else if(Input.GetMouseButton(0))
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            points.Add(pos);
+            lr.positionCount++;
+            lr.SetPosition(lr.positionCount - 1, pos);
+            col.points = points.ToArray();
+        }
+        else if( Input.GetMouseButtonUp(0))
+        {
+            points.Clear();
+        }
     }
 }
