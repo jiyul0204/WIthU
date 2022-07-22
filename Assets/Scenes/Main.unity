@@ -252,7 +252,7 @@ MonoBehaviour:
   StatusButton: {fileID: 1431002183}
   UserButton: {fileID: 1123403707}
   Del: {fileID: 1287108780}
-  SettingDel: {fileID: 0}
+  SettingDel: {fileID: 1657967694}
   DrawerButton: {fileID: 615149250}
   SettingButton: {fileID: 1657967694}
   StatusPanel: {fileID: 1775581699}
@@ -639,7 +639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1856871, y: 0}
   m_AnchorMax: {x: 1, y: 0.65865076}
-  m_AnchoredPosition: {x: -151.00003, y: 89}
+  m_AnchoredPosition: {x: -151, y: 89}
   m_SizeDelta: {x: -427.96, y: -24.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196937984
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418934924}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1abb8fb866dde404db937d25d27b8965, type: 3}
   m_Name: 
