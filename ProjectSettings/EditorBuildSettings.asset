@@ -15,9 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/OutSide.unity
     guid: 716487c4331e9664ab2321d3ea18d764
   - enabled: 1
+    path: Assets/Scenes/GameMenu.unity
+    guid: e0e8b0c0718b9ef47b05378eafbf056d
+  - enabled: 1
     path: Assets/Scenes/Touch_Bell.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/CardGame.unity
     guid: bad004d665fcf2743a1ed1f44c65db87
+  - enabled: 1
+    path: Assets/Scenes/G_Runner.unity
+    guid: 2afa234d258203344a2c26ce6f11cce1
   m_configObjects: {}

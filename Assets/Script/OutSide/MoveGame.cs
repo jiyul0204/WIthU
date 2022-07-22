@@ -12,10 +12,11 @@ public class MoveGame : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("M");
         // other : zone GameObject의 Collider2D Component만 인자로 넘어옴\
         if(other.tag =="Game")
         {
-            SceneService.Instance.LoadScene(GameName.CardGame);
+            SceneService.Instance.LoadScene(SceneName.GameMenu);
         }
         //if (other.tag == "Funiture")
         //{

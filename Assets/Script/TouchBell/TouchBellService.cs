@@ -56,7 +56,7 @@ public class TouchBellService : MonoBehaviour
         homeButton.OnClickAsObservable()
             .Subscribe(_ =>
             {
-                SceneService.Instance.LoadScene(SceneName.Main);
+                SceneService.Instance.LoadScene(SceneName.OutSide);
             })
                 .AddTo(gameObject);
 

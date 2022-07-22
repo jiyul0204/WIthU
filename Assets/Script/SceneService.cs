@@ -3,13 +3,14 @@ public enum SceneName
 {
     Logo,
     Main,
-    OutSide
+    OutSide,
+    GameMenu
 }
 public enum GameName
 {
     Touch_Bell,
     CardGame,
-    Runner
+    G_Runner
 }
 
 public class SceneService : Singleton<SceneService>
