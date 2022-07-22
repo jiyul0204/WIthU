@@ -12,11 +12,17 @@ public class ButtonEvent : MonoBehaviour
     [SerializeField]
     Button Del;
     [SerializeField]
+    Button SettingDel;
+    [SerializeField]
     Button DrawerButton;
+    [SerializeField]
+    Button SettingButton;
     [SerializeField]
     GameObject StatusPanel;
     [SerializeField]
     GameObject DrawerPanel;
+    [SerializeField]
+    GameObject SettingPanel;
     void Start()
     {
         BindView();
@@ -37,12 +43,22 @@ public class ButtonEvent : MonoBehaviour
                 DrawerPanel.SetActive(false);
             })
                 .AddTo(gameObject);
-        
-        
-        
-        
-        
-        
+
+
+        SettingButton.OnClickAsObservable()
+            .Subscribe(_ =>
+            {
+                SettingPanel.SetActive(true);
+            })
+                .AddTo(gameObject);
+        SettingDel.OnClickAsObservable()
+            .Subscribe(_ =>
+            {
+                SettingPanel.SetActive(false);
+            })
+                .AddTo(gameObject);
+
+
         DrawerButton.OnClickAsObservable()
             .Subscribe(_ =>
             {

@@ -25,6 +25,7 @@ public class CharacterMove : MonoBehaviour
 
     #region CharMove
     int sec;
+    int Downsec;
     int secInverse;
     bool move;
     Sprite RabbitMove;
@@ -37,6 +38,7 @@ public class CharacterMove : MonoBehaviour
         nDirection = -1;
         nUpDirection = -1;
         IsBtnDown = false;
+        Downsec = 0;
         sec = 0;
         secInverse = 0;
     }
@@ -99,6 +101,23 @@ public class CharacterMove : MonoBehaviour
             {
                 RabbitMove = Resources.Load("Norm", typeof(Sprite)) as Sprite;
                 sec = 0;
+            }
+        }
+        if(nUpDirection==(int)ZoneType.DOWN)
+        {
+            Downsec++;
+            if (Downsec == 1)
+            {
+                if (move == false)
+                    RabbitMove = Resources.Load("Rabbit", typeof(Sprite)) as Sprite;
+                else
+                    RabbitMove = Resources.Load("Rabbit", typeof(Sprite)) as Sprite;
+                move = !move;
+            }
+            else if (Downsec == 5)
+            {
+                RabbitMove = Resources.Load("Rabbit", typeof(Sprite)) as Sprite;
+                Downsec = 0;
             }
         }
         animator.GetComponent<Image>().sprite = RabbitMove;

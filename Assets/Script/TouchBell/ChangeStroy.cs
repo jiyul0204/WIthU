@@ -14,7 +14,7 @@ public class ChangeStroy : MonoBehaviour
     void Start()
     {
         TouchCnt = 0;
-        ScriptText.text = "동물 친구들과 함께 캠핑을 가려고해!\n우릴 위해 불을 지필 장작을 구해다줄 수 있겠니?";
+        ScriptText.text = "동물 친구들과 함께 캠프파이어를 가려고해!\n우릴 위해 불을 지필 장작을 구해다줄 수 있겠니?";
     }
     void Update()
     {
@@ -43,7 +43,7 @@ public class ChangeStroy : MonoBehaviour
             }
             else if(TouchCnt ==5)
             {
-                ScriptText.text = "덕분에 피크닉을 갈 수 있어!\n선물로 포도 2개, 사과 2개를 줄게!";
+                ScriptText.text = "덕분에 캠프파이어에 갈 수 있어!\n선물로 포도 2개, 사과 2개를 줄게!";
                 TouchCnt = 9;
             }
             else if(TouchCnt==8)
