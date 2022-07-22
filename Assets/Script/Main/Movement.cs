@@ -21,18 +21,17 @@ public class Movement : MonoBehaviour
     
     void FixedUpdate()
     {
-        Debug.Log("player");
         if(movementJoystick.joystickVec.y != 0)
-            rb.velocity = new Vector2(movementJoystick.joystickVec.x * playerSpeed, movementJoystick.joystickVec.y * playerSpeed);
+            rb.velocity = new Vector3(movementJoystick.joystickVec.x * playerSpeed, movementJoystick.joystickVec.y * playerSpeed,0);
         else
             rb.velocity = Vector2.zero;
-
+        Debug.Log(movementJoystick.joystickVec.y);
         ScreenChk();
     }
     private void ScreenChk()
     {
-        Debug.Log("player");
         Vector3 worldPos = Camera.main.WorldToViewportPoint(this.transform.position);
+        
         if(worldPos.x < 0.05f) worldPos.x = 0.05f;
         if(worldPos.x > 0.95f) worldPos.x = 0.95f;
         if(worldPos.y < 0.05f) worldPos.y = 0.05f;
@@ -43,7 +42,6 @@ public class Movement : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("player");
         rb = GetComponent<Rigidbody2D>(); // joystick
         
         /*tr = GetComponent<Transform>();

@@ -30,9 +30,11 @@ public class MovePlayer : MonoBehaviour
         Vector2 dragPos = pointerEventData.position;
         joystickVec = (dragPos - joystickTouchPos).normalized;
 
+        joystickBG.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         float joystickDist = Vector2.Distance(dragPos, joystickTouchPos);
 
-        if(joystickDist < joystickRadius)
+        if (joystickDist < joystickRadius)
             joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
         else
             joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
