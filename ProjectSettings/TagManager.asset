@@ -9,6 +9,7 @@ TagManager:
   - Funiture
   - Mob
   - Game
+  - Line
   layers:
   - Default
   - TransparentFX
