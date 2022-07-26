@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+
+
 public class DrawLine : MonoBehaviour
 {
     public GameObject linePrefab;
@@ -15,6 +17,13 @@ public class DrawLine : MonoBehaviour
     GameObject DrawingPanel;
     [SerializeField]
     Button EraseButton;
+
+    Camera mainCam { get { return Camera.main.GetComponent<Camera>(); } }
+    bool mainCamFound { get { return mainCam != null; } }
+    Ray ray { get {return mainCam.ScreenPointToRay(Input.mousePosition);} }
+    RaycastHit hit;
+    bool didHitSomething { get { return Physics.Raycast(ray, out hit); } }
+    bool hitCollider { get { return hit.collider != null; } }
 
     Vector3 pos;
     void Start()
@@ -40,37 +49,33 @@ public class DrawLine : MonoBehaviour
     }
     void LineRender()
     {
-        //Debug.Log(DrawingPanel.transform.position.);
         linePrefab.SetActive(DrawingPanel.activeSelf);
         Line = GameObject.FindGameObjectsWithTag("Line");
         for (int i = 0; i < Line.Length; i++)
             Line[i].SetActive(DrawingPanel.activeSelf);
-        if (DrawingPanel.activeSelf==true)
+        if (DrawingPanel.activeSelf == true)
         {
+            Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (didHitSomething && hitCollider)
+                return;
+            //if (position.x < -19.27 || position.x > -11.01f || position.y < -0.63f || position.y > 4.00f)
+            //    return;
+
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log(position);
-                if (position.x >= -9.34f &&  position.x <= -1.2f && pos.y >= -1.42 && pos.y <= 4.94)
-                {
-                    GameObject go = Instantiate(linePrefab);
-                    lr = go.GetComponent<LineRenderer>();
-                    col = go.GetComponent<EdgeCollider2D>();
-                    points.Add(position);
-                    lr.positionCount = 1;
-                    lr.SetPosition(0, points[0]);
-                }
+                GameObject go = Instantiate(linePrefab);
+                lr = go.GetComponent<LineRenderer>();
+                col = go.GetComponent<EdgeCollider2D>();
+                points.Add(position);
+                lr.positionCount = 1;
+                lr.SetPosition(0, points[0]);
             }
             else if (Input.GetMouseButton(0))
             {
-                Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                if (pos.x >= -9.34f && pos.x <= -1.2f && pos.y >= -1.42 && pos.y <= 4.94)
-                {
-                    points.Add(pos);
-                    lr.positionCount++;
-                    lr.SetPosition(lr.positionCount - 1, pos);
-                    col.points = points.ToArray();
-                }
+                points.Add(position);
+                lr.positionCount++;
+                lr.SetPosition(lr.positionCount - 1, position);
+                col.points = points.ToArray();
             }
             else if (Input.GetMouseButtonUp(0))
             {

@@ -84,7 +84,7 @@ public class CollisionFuniture : MonoBehaviour
                     break;
             }
             DoorEvent();
-            Debug.Log($"[KHW] object Name is {other.gameObject.name}");
+            //Debug.Log($"[KHW] object Name is {other.gameObject.name}");
         }
         else
         {

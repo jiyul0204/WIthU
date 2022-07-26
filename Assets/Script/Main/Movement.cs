@@ -25,7 +25,6 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector3(movementJoystick.joystickVec.x * playerSpeed, movementJoystick.joystickVec.y * playerSpeed,0);
         else
             rb.velocity = Vector2.zero;
-        Debug.Log(movementJoystick.joystickVec.y);
         ScreenChk();
     }
     private void ScreenChk()

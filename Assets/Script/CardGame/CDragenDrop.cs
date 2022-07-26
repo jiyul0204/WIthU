@@ -52,6 +52,7 @@ public class CDragenDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
+        //AudioManager.Inst.PlaySFX("C:\\Users\\KOREA\\Documents\\GitHub\\Math_Verse\\Assets\\Sound\\SFX\\collection_card_touch.wav");
         defaultposition = transform.position;  //처음 위치 저장
     }
 
@@ -78,6 +79,7 @@ public class CDragenDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     transform.position = defaultposition;
                 else
                 {
+                    AudioManager.Inst.PlaySFX(SoundType.CardGame_cardtouch.ToString());
                     LCurStage = nStage;
                     defpos1 = defaultposition;
                     transform.position = Invisiable_Zone1.transform.position;
@@ -91,6 +93,7 @@ public class CDragenDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     transform.position = defaultposition;
                 else
                 {
+                    //AudioManager.Inst.PlaySFX(SoundType.CardGame_cardtouch.ToString());
                     RCurStage = nStage;
                     defpos2 = defaultposition;
                     transform.position = Invisiable_Zone2.transform.position;
@@ -107,7 +110,6 @@ public class CDragenDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     void Destroy()
     {
         Win[nStage++] = IsCorrect;
-        Debug.Log(nStage);
         IsCollision = (int)COLLISION.NONE;
         FirstNum = 0;
         IsCorrect = 0;

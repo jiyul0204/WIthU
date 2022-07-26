@@ -16,28 +16,29 @@ public class MovePlayer : MonoBehaviour
     public void Start()
     {
         joystickOriginalPos = joystickBG.transform.position;
-        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.y / 4;
+        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.y /72 -3;
+        Debug.Log(joystickRadius);
     }
     public void PointerDown()
     {
-        joystick.transform.position = Input.mousePosition;
-        joystickBG.transform.position = Input.mousePosition;
-        joystickTouchPos = Input.mousePosition;
+        Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        joystick.transform.position = new Vector3(mousepos.x, mousepos.y, 0);
+        joystickBG.transform.position = new Vector3(mousepos.x, mousepos.y, 0);
+        joystickTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
     public void Drag(BaseEventData BaseEventData)
     {
         PointerEventData pointerEventData = BaseEventData as PointerEventData;
-        Vector2 dragPos = pointerEventData.position;
+        Vector2 dragPos = Camera.main.ScreenToWorldPoint(pointerEventData.position);
         joystickVec = (dragPos - joystickTouchPos).normalized;
 
-        joystickBG.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         float joystickDist = Vector2.Distance(dragPos, joystickTouchPos);
-
+        Vector2 ChangePos;
         if (joystickDist < joystickRadius)
-            joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
+            ChangePos = joystickTouchPos + joystickVec * joystickDist;
         else
-            joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
+            ChangePos = joystickTouchPos + joystickVec * joystickRadius;
+        joystick.transform.position = new Vector3(ChangePos.x, ChangePos.y, 0);
     }
     public void PointerUp()
     {

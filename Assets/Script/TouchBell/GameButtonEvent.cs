@@ -31,6 +31,7 @@ public class GameButtonEvent : MonoBehaviour
         MemoButton.OnClickAsObservable()
             .Subscribe(_ =>
             {
+                Debug.Log("Click");
                 DrawingPanel.SetActive(true);
             })
                 .AddTo(gameObject);

@@ -226,8 +226,6 @@ public class GetUserCard : MonoBehaviour
     {
         CollisionEvent.MiddleImage.transform.position = CDragenDrop.defpos1;
         CollisionEvent.EndImage.transform.position = CDragenDrop.defpos2;
-        Debug.Log(CDragenDrop.nStage);
-        Debug.Log(CDragenDrop.LCurStage);
     }
 
     void Update()

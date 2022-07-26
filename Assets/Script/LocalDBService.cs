@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum SoundType
 {
+    CardGame_cardtouch,
     main_bgm,   // 메인 화면, 카드 컬렉션 기본 BGM
     main_button_touch,  // 시작, 컬렉션 버튼, 설정, 부모님 계정 확인 버튼 터치 시 출력되는 효과음
     collection_card_touch,  // 획득한 카드 터치 시 출력 사운드
