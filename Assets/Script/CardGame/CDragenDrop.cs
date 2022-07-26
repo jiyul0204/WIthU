@@ -79,7 +79,7 @@ public class CDragenDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     transform.position = defaultposition;
                 else
                 {
-                    AudioManager.Inst.PlaySFX(SoundType.CardGame_cardtouch.ToString());
+                    //AudioManager.Inst.PlaySFX(SoundType.CardGame_cardtouch.ToString());
                     LCurStage = nStage;
                     defpos1 = defaultposition;
                     transform.position = Invisiable_Zone1.transform.position;
